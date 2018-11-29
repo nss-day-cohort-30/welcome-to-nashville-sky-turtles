@@ -2,9 +2,9 @@
 
 In this app users can search for four different things to do/visit in Nashville:
 * parks -- using the Nashville [Metro Gov API](https://dev.socrata.com/foundry/data.nashville.gov/xbru-cfzi)
-* restaurants -- using the [Yelp API](https://www.yelp.com/developers/documentation/v3/business_search)
-* meetups -- using the [Meetups.com API](https://www.meetup.com/meetup_api/)
-* concerts -- using the [Songkick API](https://www.songkick.com/developer)
+* restaurants -- using the [Zomato API](https://developers.zomato.com/api)
+* meetups -- using the [Eventbrite API](https://www.eventbrite.com/developer/v3/)
+* concerts -- using the [Ticketmaster API](https://developer.ticketmaster.com/products-and-docs/apis/getting-started/)
 
 You will be utilizing all of the skills and concepts that you've learned up to this point in the course.
 
