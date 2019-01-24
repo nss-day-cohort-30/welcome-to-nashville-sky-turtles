@@ -1,6 +1,6 @@
 // api key: jPowzdHK080lNuuoMN0yMWol9
 
-const feature = document.querySelector(".search--parks").value;
+const feature = document.querySelector(".search--parks");
 const featureButton = document.querySelector("#request--parks");
 
 const findFeature = feature => {
@@ -8,7 +8,7 @@ const findFeature = feature => {
         fetch("https://data.nashville.gov/resource/xbru-cfzi.json")
         .then(parks => parks.json())
         .then(parkListing => {
-            console.log(parkListing[0]);
+//            console.log(parkListing[0]);
 
             const parksWithFeature = [];
             parkListing.forEach(element => {
@@ -16,17 +16,17 @@ const findFeature = feature => {
                 const result = features.find(
                     key => key.includes(feature)
                 )
-                if (`element.${result}` === "Yes") {
+                console.log(`${element[result]}`);
+                if (`${element[result]}` === "Yes") {
                     parksWithFeature.push(element);
                 }
-                console.log(result);
-                console.log(parksWithFeature);
             });
+            console.log(parksWithFeature);
         })
     }
 }
 
 featureButton.addEventListener("click", function () {
-    console.log(feature);
-    //findFeature(feature);
+//    console.log(feature.value);
+    findFeature(feature.value);
 });
