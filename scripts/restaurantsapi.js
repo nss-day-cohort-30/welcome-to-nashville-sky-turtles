@@ -1,11 +1,14 @@
-fetch("https://developers.zomato.com/api/v2.1/search?entity_id=1138&entity_type=city&apikey=32e7ff95eabcfcc0019eb633902941bc")
-    .then(restaurants => restaurants.json())
-    .then(parsedRestaurants => {
-        parsedRestaurants.restaurants.forEach(restaurant => {
-            let htmlElement = htmlFactory(restaurant)
-            postToDom(htmlElement)
-        });
-    })
+document.getElementById("request--food").addEventListener("click", function () {
+    search = document.querySelector(".search--food").value
+    fetch("https://developers.zomato.com/api/v2.1/search?entity_id=1138&entity_type=city&q=" + `${search}` + "&apikey=32e7ff95eabcfcc0019eb633902941bc")
+        .then(restaurants => restaurants.json())
+        .then(parsedRestaurants => {
+            parsedRestaurants.restaurants.forEach(restaurant => {
+                let htmlElement = htmlFactory(restaurant)
+                postToDom(htmlElement)
+            });
+        })
+})
 
 let htmlFactory = (restaurant) => {
     let name = restaurant.restaurant.name
@@ -28,8 +31,3 @@ let postToDom = (htmlElement) => {
     containerEl.innerHTML += htmlElement
 }
 
-
-document.getElementById("request--food").addEventListener("click", function () {
-    searchRequest = document.querySelector(".search--food").value
-    console.log(searchRequest)
-})
