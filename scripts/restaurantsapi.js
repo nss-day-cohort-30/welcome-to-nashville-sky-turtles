@@ -1,25 +1,33 @@
-fetch("https://developers.zomato.com/api/v2.1/search?entity_id=1138&entity_type=city&q=nashville&apikey=32e7ff95eabcfcc0019eb633902941bc")
+fetch("https://developers.zomato.com/api/v2.1/search?entity_id=1138&entity_type=city&apikey=32e7ff95eabcfcc0019eb633902941bc")
     .then(restaurants => restaurants.json())
     .then(parsedRestaurants => {
         parsedRestaurants.restaurants.forEach(restaurant => {
-            let name = restaurant.restaurant.name
-            let cuisines = restaurant.restaurant.cuisines
-            let address = restaurant.restaurant.location.address
-            let rating = restaurant.restaurant.user_rating.aggregate_rating
-            console.log(`Name: ${name} Rating: ${rating} Cuisines: ${cuisines} Address: ${address}`)
+            let htmlElement = htmlFactory(restaurant)
+            postToDom(htmlElement)
         });
     })
 
-let htmlFactory = () => {
+let htmlFactory = (restaurant) => {
+    let name = restaurant.restaurant.name
+    let cuisines = restaurant.restaurant.cuisines
+    let address = restaurant.restaurant.location.address
+    let rating = restaurant.restaurant.user_rating.aggregate_rating
+
     return `
     <div>    
         <h3>${name}</h3>
-        <p>${rating}</p>
-        <p>${cuisines}</p>
-        <p>${address}</p>
+        <p>Rating: ${rating}</p>
+        <p>Cuisine: ${cuisines}</p>
+        <p>Address: ${address}</p>
     </div>
     `
 }
+
+let postToDom = (htmlElement) => {
+    let containerEl = document.querySelector("#results--container")
+    containerEl.innerHTML += htmlElement
+}
+
 
 document.getElementById("request--food").addEventListener("click", function () {
     searchRequest = document.querySelector(".search--food").value
