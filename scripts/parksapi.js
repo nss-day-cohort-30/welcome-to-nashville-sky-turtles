@@ -2,31 +2,34 @@
 
 const feature = document.querySelector(".search--parks");
 const featureButton = document.querySelector("#request--parks");
+const resultsGoHere = document.querySelector("#results--container");
 
 const findFeature = feature => {
-    if (feature != "") {
-        fetch("https://data.nashville.gov/resource/xbru-cfzi.json")
+    fetch("https://data.nashville.gov/resource/xbru-cfzi.json")
         .then(parks => parks.json())
         .then(parkListing => {
-//            console.log(parkListing[0]);
-
             const parksWithFeature = [];
             parkListing.forEach(element => {
                 const features = Object.keys(element);
-                const result = features.find(
-                    key => key.includes(feature)
-                )
-                console.log(`${element[result]}`);
+                const result = features.find(key => key.includes(feature));
                 if (`${element[result]}` === "Yes") {
                     parksWithFeature.push(element);
                 }
             });
-            console.log(parksWithFeature);
-        })
-    }
+            makeparksHTML(parksWithFeature);
+        });
+};
+
+const makeparksHTML = featureParksArray => {
+    let allTheParks = "<div><ul>";
+    featureParksArray.forEach(element => {
+        allTheParks += `<li>${element.name}</li>`
+    });
+    allTheParks += "</ul></div>";
+    console.log(resultsGoHere);
+    // resultsGoHere.appendChild(allTheParks);
 }
 
-featureButton.addEventListener("click", function () {
-//    console.log(feature.value);
+featureButton.addEventListener("click", function() {
     findFeature(feature.value);
 });
