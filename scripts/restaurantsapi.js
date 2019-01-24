@@ -1,4 +1,7 @@
+let containerEl = document.querySelector("#results--container")
+
 document.getElementById("request--food").addEventListener("click", function () {
+    containerEl.innerHTML = ""
     search = document.querySelector(".search--food").value
     fetch("https://developers.zomato.com/api/v2.1/search?entity_id=1138&entity_type=city&q=" + `${search}` + "&apikey=32e7ff95eabcfcc0019eb633902941bc")
         .then(restaurants => restaurants.json())
@@ -27,7 +30,6 @@ let htmlFactory = (restaurant) => {
 }
 
 let postToDom = (htmlElement) => {
-    let containerEl = document.querySelector("#results--container")
     containerEl.innerHTML += htmlElement
 }
 
