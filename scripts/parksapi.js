@@ -1,7 +1,7 @@
 // api key: jPowzdHK080lNuuoMN0yMWol9
 
 const feature = document.querySelector(".search--parks");
-const featureButton = document.querySelector
+const featureButton = document.querySelector("#request--parks");
 
 
 fetch("https://data.nashville.gov/resource/xbru-cfzi.json")
