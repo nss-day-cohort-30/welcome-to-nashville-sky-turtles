@@ -21,13 +21,11 @@ const findFeature = feature => {
 };
 
 const makeparksHTML = featureParksArray => {
-    let allTheParks = "<div><ul>";
+    let HTMLsquirt = "";
     featureParksArray.forEach(element => {
-        allTheParks += `<li>${element.name}</li>`
+        HTMLsquirt += `<p>${element.park_name}</p>`
     });
-    allTheParks += "</ul></div>";
-    console.log(resultsGoHere);
-    // resultsGoHere.appendChild(allTheParks);
+    resultsGoHere.innerHTML = HTMLsquirt;
 }
 
 featureButton.addEventListener("click", function() {
