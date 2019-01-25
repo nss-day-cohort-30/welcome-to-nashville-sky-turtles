@@ -2,9 +2,6 @@ document.querySelector("#concertButton").addEventListener("click", function () {
     pingAPI()
 }) 
 
-pingAPI(
-
-)
 
 
 
