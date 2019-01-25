@@ -29,6 +29,7 @@ const showEvent = events => {
              <Li class = "eventsGenre">  Music Genre: ${events.classifications[0].genre.name} </Li>
              <Li class = "eventsVenueName"> Event Date: ${events.dates.start.localDate}</Li>
               <Li class = "eventsVenueName"> Event Venue: ${events._embedded.venues[0].name}</Li>
+              <button>Save To Itinerary</button>
          </div>
          `
 }
