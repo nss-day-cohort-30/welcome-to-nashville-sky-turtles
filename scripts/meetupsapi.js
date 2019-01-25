@@ -14,21 +14,17 @@ fetch(`https://www.eventbriteapi.com/v3/events/search/?q=nashville&token=OEA3462
 
          if(parsedEvents.events !== null || parsedEvents.events !== undefined){
           allEvents.events.forEach(event => {
-              const listEvent = `<li>${event.name.text}</li>`
+              const listEvent = `<li>${event.name.text} :
+               ${event.description.text}</li>
+                              When: ${event.start.local}`
                 place4MeetupResults.innerHTML += listEvent
           });
-        // place4MeetupResults.innerHTML += `
-            // <p>See this?  it got THIS far.</p>
-            // <p>${allEvents}[1].[name]</p>
-        // `
-
         }
 
-    // events.name.text
-    // events.description.text
-    // events.resource_uri
-    // events.start.local
-
-
-
     })
+let showEventFactory = (event) =>{
+    let id = event.id
+    let name = event.name.text
+    let desc = event.description.text
+    let page = event.resource_uri
+}
