@@ -1,5 +1,5 @@
 document.querySelector("#concertButton").addEventListener("click", function () {
-    genre = document.querySelector(".search--music").value 
+    genre = document.querySelector(".SearchByGenre").value 
     pingAPI(genre)
 }) 
 
@@ -26,9 +26,9 @@ const showEvent = events => {
     return `
          <div class="eventsContainer">
              <h2 class = "eventsName">${events.name}</h2>
-             <p class = "eventsGenre">  Music Genre: ${events.classifications[0].genre.name} </p>
-             <p class = "eventsVenueName"> Event Date: ${events.dates.start.localDate}</p>
-              <p class = "eventsVenueName"> Event Venue: ${events._embedded.venues[0].name}</p>
+             <Li class = "eventsGenre">  Music Genre: ${events.classifications[0].genre.name} </Li>
+             <Li class = "eventsVenueName"> Event Date: ${events.dates.start.localDate}</Li>
+              <Li class = "eventsVenueName"> Event Venue: ${events._embedded.venues[0].name}</Li>
          </div>
          `
 }
