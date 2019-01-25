@@ -9,23 +9,48 @@ const findFeature = feature => {
         .then(parks => parks.json())
         .then(parkListing => {
             const parksWithFeature = [];
+            let strResult = "";
             parkListing.forEach(element => {
+                const strFeature = feature.replace(/ /i,'_');
                 const features = Object.keys(element);
-                const result = features.find(key => key.includes(feature));
-                if (`${element[result]}` === "Yes") {
+                result = features.find(key => key.includes(strFeature));
+                if (result === undefined) {
+                    strResult = "";
+                } else if (`${element[result]}` === "Yes") {
                     parksWithFeature.push(element);
+                    strResult = result.replace(/_/i, ' ');
                 }
             });
-            makeparksHTML(parksWithFeature);
+            makeparksHTML(parksWithFeature, strResult);
+            listenFactory(parksWithFeature);
         });
 };
 
-const makeparksHTML = featureParksArray => {
+const makeparksHTML = (featureParksArray, result) => {
     let HTMLsquirt = "";
-    featureParksArray.forEach(element => {
-        HTMLsquirt += `<p>${element.park_name}</p>`
-    });
+    let idCounter = 0;
+    if (result === "") { 
+        HTMLsquirt += "<p>No results found 🤷</p>";
+    } else {
+        HTMLsquirt += `<h4>These parks have ${result} available.</h4>`;
+        featureParksArray.forEach(element => {
+            HTMLsquirt += `<p>${element.park_name} <button id="${idCounter}_park">Save To Itinerary</button></p>`
+            idCounter++;
+        });
+    }
     resultsGoHere.innerHTML = HTMLsquirt;
+}
+
+const listenFactory = featureParksArray => {
+    resultsGoHere.addEventListener("click", function() {
+        let clickID = event.target.id;
+        let buttonType = clickID.split("_");
+        if (buttonType[1] === "park") {
+            const element = featureParksArray[buttonType[0]];
+            const chosenPark = element.park_name;
+            console.log(chosenPark);
+        }
+    })
 }
 
 featureButton.addEventListener("click", function() {
