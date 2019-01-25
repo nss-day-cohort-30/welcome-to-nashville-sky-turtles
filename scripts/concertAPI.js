@@ -21,7 +21,7 @@ function pingAPI(genre)  {
             addtoDOM(eventsonDOM) 
             
         });
-        listenFactory()
+        buttonsaveFunction()
     })
 let counter = 0
 const showEvent = events => {
@@ -44,7 +44,7 @@ const addtoDOM = eventsonDOM => {
 }
 
 
-const listenFactory = () => {
+const buttonsaveFunction = () => {
     document.querySelector("#results--container").addEventListener("click", function() {
         let clickID = event.target.id;
         let buttonType = clickID.split("_");
