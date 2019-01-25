@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Nashville Software School</title>
-  <link rel="stylesheet" href="./scripts/main.css">
+  <link rel="stylesheet" href="./main.css">
 
 </head>
 <body>
@@ -13,22 +13,22 @@
     <section class="search--section">
       <h2>Search for ... </h2>
       <div id="searchform--parks">
-        parks: <input type="text" class="search--parks">parks by feature</input></br>
-        <button>request</button>
+        parks: <input type="text" name="search--parks" class="search--parks" placeholder="parks by feature"> 
+        <button id="request--parks">request</button>
       </div>
       <div id="searchform--food">
-        restaurants: <input type="text" class="search--food">restaurants by food type</input></br>
-        <button>request</button>
+        restaurants: <input type="text" name="search--food" class="search--food" placeholder="restaurants by food type">
+        <button id="request--food">request</button>
       </div>
 
       <div id="searchform--meetups">
-        meetups: <input type="text" class="search--meetups">meetups by topic</input></br>
-        <button>request</button>
+        meetups: <input type="text" name="search--meetups" class="search--meetups" placeholder="meetups by topic">
+        <button id="request--meetups">request</button>
       </div>
 
       <div id="searchform--music">
-        concert: <input type="text" class="search--music">concerts by genre</input></br>
-        <button>request</button>
+        concert: <input type="text" name="search--music" class="search--music" placeholder="concerts by genre">
+        <button id="request--music">request</button>
       </div>
     </section>
 
@@ -43,6 +43,12 @@
           </div>
          </div>
         -->
+    </section>
+
+    <section class="itinerary--section">
+      <h2>Itinerary</h2>
+      <div id="itinerary--container">
+      </div>
     </section>
   </article>
 
