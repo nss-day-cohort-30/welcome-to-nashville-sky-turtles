@@ -17,22 +17,23 @@ function pingAPI(genre)  {
         parsedEvents._embedded.events.forEach(events => {
             console.log(events.classifications[0].genre.name)
             console.log(events._embedded.venues[0].name)
+            console.log(events.id)
             const eventsonDOM = showEvent(events)
             addtoDOM(eventsonDOM) 
             
         });
         buttonsaveFunction()
     })
-let counter = 0
+
 const showEvent = events => {
-    counter++
+    
     return `
-         <div class="eventsContainer">
+         <div  class="eventsContainer">
              <h2 class = "eventsName">${events.name}</h2>
              <Li class = "eventsGenre">  Music Genre: ${events.classifications[0].genre.name} </Li>
              <Li class = "eventsVenueName"> Event Date: ${events.dates.start.localDate}</Li>
               <Li class = "eventsVenueName"> Event Venue: ${events._embedded.venues[0].name}</Li>
-              <button class = "saveButton" id = "${counter}_event" >Save To Itinerary</button>
+              <button class = "saveButton" id = "${events.id}" >Save To Itinerary</button>
 
          </div>
          `
@@ -49,9 +50,13 @@ const buttonsaveFunction = () => {
         let clickID = event.target.id;
         let buttonType = clickID.split("_");
         if (buttonType[1] === "event") {
-            console.log("hello world");
+           
         }
     })
+    // fetch(
+        
+    // )
+    
 }
 
 
