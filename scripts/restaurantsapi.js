@@ -17,14 +17,14 @@ document.getElementById("request--food").addEventListener("click", function () {
                 allRestaurants.restaurants.forEach(restaurant => {
                     let htmlElement = htmlFactory(restaurant)
                     postToResultsDom(htmlElement)
-
+                    
                 })
             } else {
                 containerEl.innerHTML += "<h2><em>No results found</em> 🤷‍♀️</h2>"
             }
             clickFactory()
         })
-})
+    })
 
 //HTML factory for search results
 let htmlFactory = (restaurant) => {
@@ -64,6 +64,7 @@ postToItineraryDom = (itineraryHTML) => {
 //Save button
 const clickFactory = () => {
     document.querySelector("#results--container").addEventListener("click", function () {
+        if (event.target.tagName.toLowerCase() === "button") {
         let clickID = event.target.id
         fetch(`https://developers.zomato.com/api/v2.1/restaurant?res_id=${clickID}&apikey=${foodApiKey}`)
             .then(restaurant => restaurant.json())
@@ -73,5 +74,6 @@ const clickFactory = () => {
                 let itinerary = itineraryHTML(restaurantItineraryName)
                 postToItineraryDom(itinerary)
             })
+        }
     })
 }
