@@ -49,6 +49,10 @@ const listenFactory = featureParksArray => {
             const element = featureParksArray[buttonType[0]];
             const chosenPark = element.park_name;
             console.log(chosenPark);
+            let parkDom = document.createElement('p');
+            parkDom.textContent = chosenPark;
+            console.log(document.querySelector("#itinerary--container"))
+            document.querySelector("#itinerary--container").appendChild = parkDom;
         }
     })
 }
