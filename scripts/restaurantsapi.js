@@ -38,7 +38,7 @@ let htmlFactory = (restaurant) => {
         <p>Rating: ${rating}</p>
         <p>Cuisine: ${cuisines}</p>
         <p>Address: ${address}</p>
-        <button class="save__button" id="${id}">SAVE</button>
+        <button class="save__button" id="${id}">Save To Itinerary</button>
         </div>
         `
 
