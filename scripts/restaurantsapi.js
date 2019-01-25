@@ -1,6 +1,6 @@
 let containerEl = document.querySelector("#results--container")
-
 let allRestaurants = null
+let restaurantItineraryName = ""
 
 
 //FETCH on request
@@ -66,9 +66,9 @@ const clickFactory = () => {
         fetch(`https://developers.zomato.com/api/v2.1/restaurant?res_id=${clickID}&apikey=32e7ff95eabcfcc0019eb633902941bc`)
             .then(restaurant => restaurant.json())
             .then(parsedRestaurant => {
-                let name = parsedRestaurant.name
-                console.log(name)
-                let itinerary = itineraryHTML(name)
+                let restaurantItineraryName = parsedRestaurant.name
+                console.log(restaurantItineraryName)
+                let itinerary = itineraryHTML(restaurantItineraryName)
                 postToItineraryDom(itinerary)
             })
     })
