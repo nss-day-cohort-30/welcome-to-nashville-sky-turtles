@@ -18,18 +18,22 @@ function pingAPI(genre)  {
             console.log(events.classifications[0].genre.name)
             console.log(events._embedded.venues[0].name)
             const eventsonDOM = showEvent(events)
-            addtoDOM(eventsonDOM)
+            addtoDOM(eventsonDOM) 
+            
         });
+        listenFactory()
     })
-
+let counter = 0
 const showEvent = events => {
+    counter++
     return `
          <div class="eventsContainer">
              <h2 class = "eventsName">${events.name}</h2>
              <Li class = "eventsGenre">  Music Genre: ${events.classifications[0].genre.name} </Li>
              <Li class = "eventsVenueName"> Event Date: ${events.dates.start.localDate}</Li>
               <Li class = "eventsVenueName"> Event Venue: ${events._embedded.venues[0].name}</Li>
-              <button>Save To Itinerary</button>
+              <button class = "saveButton" id = "${counter}_event" >Save To Itinerary</button>
+
          </div>
          `
 }
@@ -38,5 +42,19 @@ const addtoDOM = eventsonDOM => {
     document.querySelector("#results--container").innerHTML += eventsonDOM
 }
 }
+
+
+const listenFactory = () => {
+    document.querySelector("#results--container").addEventListener("click", function() {
+        let clickID = event.target.id;
+        let buttonType = clickID.split("_");
+        if (buttonType[1] === "event") {
+            console.log("hello world");
+        }
+    })
+}
+
+
+
 
 
