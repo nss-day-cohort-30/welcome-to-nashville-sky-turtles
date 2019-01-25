@@ -1,0 +1,16 @@
+h1 {
+    background-color: aquamarine;
+    text-align: center;
+}
+
+.search--section {
+    display: flex;
+}
+
+#searchform--parks,
+#searchform--food,
+#searchform--meetups,
+#searchform--music {
+
+    
+}
