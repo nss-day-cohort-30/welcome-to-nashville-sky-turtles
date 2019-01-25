@@ -47,7 +47,6 @@ const listenFactory = featureParksArray => {
         let buttonType = clickID.split("_");
         if (buttonType[1] === "park") {
             const element = featureParksArray[buttonType[0]];
-            console.log(element);
             const chosenPark = element.park_name;
             console.log(chosenPark);
         }
