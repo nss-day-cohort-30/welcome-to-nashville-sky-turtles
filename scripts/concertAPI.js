@@ -7,7 +7,7 @@ document.querySelector("#concertButton").addEventListener("click", function () {
 
 
 function pingAPI(genre) {
-    document.querySelector("#results--container").innerHTML = ""
+    document.querySelector("#concertContainer").innerHTML = ""
     fetch(`https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&dmaId=312&apikey=DW1OYVAwf6ati7WVNtEdLEku4AHB2pF0&classificationName=${genre}`)
         .then(events => events.json())
         .then(parsedEvents => {
@@ -41,7 +41,7 @@ function pingAPI(genre) {
     }
 
     const addtoDOM = eventsonDOM => {
-        document.querySelector("#results--container").innerHTML += eventsonDOM
+        document.querySelector("#concertContainer").innerHTML += eventsonDOM
     }
 
 
@@ -54,7 +54,7 @@ function pingAPI(genre) {
 
 
 
-document.querySelector("#results--container").addEventListener("click", function () {
+document.querySelector("#concertContainer").addEventListener("click", function () {
     let clickID = event.target.id;
     let buttonType = clickID.split("_");
     if (buttonType[1] === "event") {
