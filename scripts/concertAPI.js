@@ -7,7 +7,7 @@ document.querySelector("#concertButton").addEventListener("click", function () {
 
 
 function pingAPI(genre) {
-
+    document.querySelector("#results--container").innerHTML = ""
     fetch(`https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&dmaId=312&apikey=DW1OYVAwf6ati7WVNtEdLEku4AHB2pF0&classificationName=${genre}`)
         .then(events => events.json())
         .then(parsedEvents => {
@@ -77,7 +77,8 @@ document.querySelector("#results--container").addEventListener("click", function
 
 
     const addneweventtoDOM = neweventonDOM => {
-        document.querySelector("#itinerary--container").innerHTML += neweventonDOM
+        document.querySelector("#concertItinerary").innerHTML = ""
+        document.querySelector("#concertItinerary").innerHTML += neweventonDOM
     }
 
 })
