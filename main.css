@@ -1,7 +1,14 @@
-h1,
+h1{
+    text-align: center;
+    flex-basis: 100%;
+    font-family: 'Caveat';
+    font-size: 60px;
+}
 h2 {
     text-align: center;
     flex-basis: 100%;
+    font-family: 'Caveat';
+    font-size: 35px;
 }
 
 h4 {
@@ -42,11 +49,14 @@ li {
     width: 375px;
     text-align: left;
     margin: auto;
+    font-family: 'Caveat';
+    font-size: 20px;
 }
 
 .result--section {
     display: flex;
     flex-wrap: wrap;
+    
 }
 
 #results--container {
