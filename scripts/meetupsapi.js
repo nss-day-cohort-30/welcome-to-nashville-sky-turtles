@@ -1,7 +1,7 @@
 const meetupSearch = document.querySelector("#searchform--meetups")
 const place4MeetupResults = document.querySelector("#results--container")
 let allEvents=[]
-fetch(`https://www.eventbriteapi.com/v3/events/search/?q=nashville&token=OEA3462VUJJRZA57Z7GC`, {
+fetch(`https://www.eventbriteapi.com/v3/events/search/?q=meetup_nashville&token=OEA3462VUJJRZA57Z7GC`, {
     headers: {
         "Authorization": "Bearer OEA3462VUJJRZA57Z7GC",
         "Accept": "application/json"
@@ -9,22 +9,11 @@ fetch(`https://www.eventbriteapi.com/v3/events/search/?q=nashville&token=OEA3462
 })
 .then(events => events.json())
 .then(parsedEvents => {
-    console.log(parsedEvents)
-    allEvents = parsedEvents
 
-         if(parsedEvents.events !== null || parsedEvents.events !== undefined){
-          allEvents.events.forEach(event => {
-              const listEvent = `<li>${event.name.text} :
-               ${event.description.text}</li>
-                              When: ${event.start.local}`
-                place4MeetupResults.innerHTML += listEvent
-          });
-        }
+    parsedEvents.events.forEach(event => {
+        console.log(event.name)
+    });
 
-    })
-let showEventFactory = (event) =>{
-    let id = event.id
-    let name = event.name.text
-    let desc = event.description.text
-    let page = event.resource_uri
-}
+
+
+})

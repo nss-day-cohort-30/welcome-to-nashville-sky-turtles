@@ -1,13 +1,15 @@
 let containerEl = document.querySelector("#results--container")
 let allRestaurants = null
 let restaurantItineraryName = ""
+const foodApiKey = config.foodKey
+
 
 
 //FETCH on request
 document.getElementById("request--food").addEventListener("click", function () {
     containerEl.innerHTML = ""
     search = document.querySelector(".search--food").value
-    fetch(`https://developers.zomato.com/api/v2.1/search?entity_id=1138&entity_type=city&q=${search}&sort=rating&apikey=32e7ff95eabcfcc0019eb633902941bc`)
+    fetch(`https://developers.zomato.com/api/v2.1/search?entity_id=1138&entity_type=city&q=${search}&sort=rating&apikey=${foodApiKey}`)
         .then(restaurants => restaurants.json())
         .then(parsedRestaurants => {
             allRestaurants = parsedRestaurants
@@ -20,9 +22,8 @@ document.getElementById("request--food").addEventListener("click", function () {
             } else {
                 containerEl.innerHTML += "<h2><em>No results found</em> 🤷‍♀️</h2>"
             }
-            clickFactory()
         })
-})
+    })
 
 //HTML factory for search results
 let htmlFactory = (restaurant) => {
@@ -45,7 +46,7 @@ let htmlFactory = (restaurant) => {
 }
 //HTML factory for itinerary HTML
 let itineraryHTML = (name) => {
-    return `<div class="restaurant--itinerary--card">Restaurant: ${name}</div>`
+    return `Restaurant: ${name}`
 }
 
 //post to results DOM
@@ -55,21 +56,21 @@ let postToResultsDom = (htmlElement) => {
 
 // post to itinerary DOM
 postToItineraryDom = (itineraryHTML) => {
-    let itineraryContainerEL = document.getElementById("itinerary--container")
-    itineraryContainerEL.innerHTML += itineraryHTML
+    let itineraryContainerEL = document.getElementById("restaurantItinerary")
+    itineraryContainerEL.innerHTML = itineraryHTML
 }
 
 //Save button
-const clickFactory = () => {
     document.querySelector("#results--container").addEventListener("click", function () {
-        let clickID = event.target.id
-        fetch(`https://developers.zomato.com/api/v2.1/restaurant?res_id=${clickID}&apikey=32e7ff95eabcfcc0019eb633902941bc`)
-            .then(restaurant => restaurant.json())
-            .then(parsedRestaurant => {
-                let restaurantItineraryName = parsedRestaurant.name
-                console.log(restaurantItineraryName)
-                let itinerary = itineraryHTML(restaurantItineraryName)
-                postToItineraryDom(itinerary)
-            })
+        if (event.target.classList.contains("save__button")) {
+            let clickID = event.target.id
+            fetch(`https://developers.zomato.com/api/v2.1/restaurant?res_id=${clickID}&apikey=${foodApiKey}`)
+                .then(restaurant => restaurant.json())
+                .then(parsedRestaurant => {
+                    let restaurantItineraryName = parsedRestaurant.name
+                    console.log(restaurantItineraryName)
+                    let itinerary = itineraryHTML(restaurantItineraryName)
+                    postToItineraryDom(itinerary)
+                })
+        }
     })
-}
