@@ -77,8 +77,8 @@ document.querySelector("#results--container").addEventListener("click", function
 
 
     const addneweventtoDOM = neweventonDOM => {
-        document.querySelector("#itinerary--container").innerHTML = ""
-        document.querySelector("#itinerary--container").innerHTML += neweventonDOM
+        document.querySelector("#concertItinerary").innerHTML = ""
+        document.querySelector("#concertItinerary").innerHTML += neweventonDOM
     }
 
 })
