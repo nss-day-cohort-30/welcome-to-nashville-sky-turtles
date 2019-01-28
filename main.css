@@ -13,6 +13,17 @@ li {
     margin-bottom: 3px;
 }
 
+.image--container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#skyline {
+    height: 200px;
+    border-radius: 100%;
+}
+
 #searchform--parks,
 #searchform--food,
 #searchform--meetups,
