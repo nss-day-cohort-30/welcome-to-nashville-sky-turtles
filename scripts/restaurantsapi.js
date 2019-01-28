@@ -46,7 +46,7 @@ let htmlFactory = (restaurant) => {
 }
 //HTML factory for itinerary HTML
 let itineraryHTML = (name) => {
-    return `<div class="restaurant--itinerary--card">Restaurant: ${name}</div>`
+    return `Restaurant: ${name}`
 }
 
 //post to results DOM
@@ -56,13 +56,13 @@ let postToResultsDom = (htmlElement) => {
 
 // post to itinerary DOM
 postToItineraryDom = (itineraryHTML) => {
-    let itineraryContainerEL = document.getElementById("itinerary--container")
-    itineraryContainerEL.innerHTML += itineraryHTML
+    let itineraryContainerEL = document.getElementById("restaurantItinerary")
+    itineraryContainerEL.innerHTML = itineraryHTML
 }
 
 //Save button
     document.querySelector("#results--container").addEventListener("click", function () {
-        if (event.target.tagName.toLowerCase() === "button") {
+        if (event.target.classList.contains("save__button")) {
             let clickID = event.target.id
             fetch(`https://developers.zomato.com/api/v2.1/restaurant?res_id=${clickID}&apikey=${foodApiKey}`)
                 .then(restaurant => restaurant.json())
