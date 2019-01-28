@@ -70,7 +70,10 @@ li {
     
 }
 
-#results--container {
+#parksContainer,
+#restaurantContainer,
+#meetupContainer,
+#concertContainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
