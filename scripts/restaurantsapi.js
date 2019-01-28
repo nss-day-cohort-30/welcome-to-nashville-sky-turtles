@@ -1,4 +1,4 @@
-let containerEl = document.querySelector("#results--container")
+let containerEl = document.querySelector("#restaurantContainer")
 let allRestaurants = null
 let restaurantItineraryName = ""
 const foodApiKey = config.foodKey
