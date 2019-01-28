@@ -78,6 +78,7 @@ document.querySelector("#meetupContainer").addEventListener("click", function ()
         )
         const anotherThingToDom = somethingToSave => {
 
+            document.querySelector("#meetupItinerary").innerHTML=" "
             document.querySelector("#meetupItinerary").innerHTML += somethingToSave;
         }
 
