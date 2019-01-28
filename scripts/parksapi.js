@@ -50,7 +50,7 @@ const listenFactory = featureParksArray => {
             const chosenPark = element.park_name;
             console.log(chosenPark);
             let parkDom = `<p>Park: ${chosenPark}</p>`
-            document.querySelector("#itinerary--container").innerHTML += parkDom;
+            document.querySelector("#parksItinerary").innerHTML = parkDom;
         }
     })
 }
