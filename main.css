@@ -1,16 +1,72 @@
-h1 {
-    background-color: aquamarine;
+h1,
+h2 {
     text-align: center;
+    flex-basis: 100%;
 }
 
-.search--section {
-    display: flex;
+h4 {
+    flex-basis: 100%;
+    text-align: center;
 }
 
 #searchform--parks,
 #searchform--food,
 #searchform--meetups,
 #searchform--music {
-
-    
+    margin-bottom: 6px;
 }
+
+.search--parks,
+.search--food,
+.search--meetups,
+.search--music {
+    width: 200px;
+}
+
+.search--section {
+    width: 375px;
+    text-align: left;
+    margin: auto;
+}
+
+.result--section {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#results--container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.restaurant--results--card,
+.eventsContainer {
+    border: 1px solid black;
+    padding: 5px 5px 10px 5px;
+    width: 400px;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 10px;
+    flex-wrap: wrap;
+}
+
+.park--card {
+    border: 1px solid black;
+    padding: 5px 5px 10px 5px;
+    width: 300px;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 10px;
+    flex-wrap: wrap;
+}
+
+#itinerary--container {
+    border: 2px solid black;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 10px;
+    width: 50%;
+    margin: 0% 25%;
+}
+
