@@ -62,7 +62,7 @@ postToItineraryDom = (itineraryHTML) => {
 
 //Save button
     document.querySelector("#results--container").addEventListener("click", function () {
-        if (event.target.tagName.toLowerCase() === "button") {
+        if (event.target.classList.contains("save__button")) {
             let clickID = event.target.id
             fetch(`https://developers.zomato.com/api/v2.1/restaurant?res_id=${clickID}&apikey=${foodApiKey}`)
                 .then(restaurant => restaurant.json())
