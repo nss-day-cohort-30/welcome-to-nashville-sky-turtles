@@ -79,32 +79,36 @@ li {
 
 .restaurant--results--card,
 .eventsContainer {
-    border: 1px solid black;
+    border: 3px solid white;
     padding: 5px 5px 10px 5px;
     width: 400px;
     height: auto;
     margin-top: 10px;
     border-radius: 10px;
     flex-wrap: wrap;
+    background-color: lightyellow;
 }
 
 .park--card {
-    border: 1px solid black;
+    border: 3px solid white;
     padding: 5px 5px 10px 5px;
     width: 250px;
     height: auto;
     margin-top: 10px;
     border-radius: 10px;
     flex-wrap: wrap;
+    background-color: lightyellow;
 }
 
 #itinerary--container {
-    border: 2px solid black;
+    border: 3px solid white;
     justify-content: center;
     padding: 10px;
     border-radius: 10px;
     width: 50%;
     margin: auto;
+    background-color: lightgoldenrodyellow;
+
 }
 
 #itinerary--container div {
