@@ -34,7 +34,7 @@ const makeparksHTML = (featureParksArray, result) => {
   } else {
     HTMLsquirt += `<h4>These parks have ${result} available.</h4>`;
     featureParksArray.forEach(element => {
-      HTMLsquirt += `<p class="park--card">${element.park_name}</br>${element.mapped_location_address} <button id="${idCounter}_park">Save To Itinerary</button></p>`;
+      HTMLsquirt += `<p class="park--card">${element.park_name}<br />${element.mapped_location_address} <br /><button id="${idCounter}_park">Save To Itinerary</button></p>`;
       idCounter++;
     });
   }
