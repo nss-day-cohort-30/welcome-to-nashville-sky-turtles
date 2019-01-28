@@ -1,3 +1,14 @@
+body {
+    background-color: rgb(196, 245, 248);
+}
+
+.content--div {
+    background-color: bisque;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 20px;
+}
+
 h1{
     text-align: center;
     flex-basis: 100%;
