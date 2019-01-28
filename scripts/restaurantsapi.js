@@ -7,7 +7,7 @@ const foodApiKey = config.foodKey
 
 //FETCH on request
 document.getElementById("request--food").addEventListener("click", function () {
-    containerEl.innerHTML = ""
+    clearDivs()
     search = document.querySelector(".search--food").value
     fetch(`https://developers.zomato.com/api/v2.1/search?entity_id=1138&entity_type=city&q=${search}&sort=rating&apikey=${foodApiKey}`)
         .then(restaurants => restaurants.json())
