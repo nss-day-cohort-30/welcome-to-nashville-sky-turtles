@@ -69,10 +69,10 @@ document.querySelector("#meetupContainer").addEventListener("click", function ()
                 "Authorization": "Bearer OEA3462VUJJRZA57Z7GC",
                 "Accept": "application/json"
             }
-        }).then(eventMeet => eventMeet.json()
-            .then(eventMeet => {
+        }).then(event => event.json()
+            .then(event => {
 
-                const somethingToSave = saveToItinerary(eventMeet)
+                const somethingToSave = saveToItinerary(event)
                 anotherThingToDom(somethingToSave)
             })
         )
@@ -81,19 +81,16 @@ document.querySelector("#meetupContainer").addEventListener("click", function ()
             document.querySelector("#meetupItinerary").innerHTML += somethingToSave;
         }
 
-// debugger 
+        // debugger 
 
-        const saveToItinerary = (eventMeet) => {
-            console.log("event:", eventMeet)
+        const saveToItinerary = (event) => {
+            console.log("event:", event)
             return `
             <section name="meetup--section" id="meetup--article"> 
-            <p>${eventMeet.name} </p> 
-            <p>${eventMeet.start}</p>
-            
+            <p>${event.name.text} </p> 
             </section>
             `
         }
-
 
     }
     fetchSpecific(meetNameId)
@@ -102,9 +99,6 @@ document.querySelector("#meetupContainer").addEventListener("click", function ()
     // console.log("event id:", event.id)
 
 })
-
-
-
 
     // const theSelectedBtn = document.querySelector(`#btn-${event.id}`)
     // console.log("selected btn:", theSelectedBtn)
