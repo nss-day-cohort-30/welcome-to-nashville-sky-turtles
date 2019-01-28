@@ -43,16 +43,14 @@ const makeparksHTML = (featureParksArray, result) => {
 
 const listenFactory = featureParksArray => {
     resultsGoHere.addEventListener("click", function() {
-        let clickID = event.target.id;
-        let buttonType = clickID.split("_");
+        const clickID = event.target.id;
+        const buttonType = clickID.split("_");
         if (buttonType[1] === "park") {
             const element = featureParksArray[buttonType[0]];
             const chosenPark = element.park_name;
             console.log(chosenPark);
-            let parkDom = document.createElement('p');
-            parkDom.textContent = chosenPark;
-            console.log(document.querySelector("#itinerary--container"))
-            document.querySelector("#itinerary--container").appendChild = parkDom;
+            let parkDom = `<p>Park: ${chosenPark}</p>`
+            document.querySelector("#itinerary--container").innerHTML += parkDom;
         }
     })
 }
