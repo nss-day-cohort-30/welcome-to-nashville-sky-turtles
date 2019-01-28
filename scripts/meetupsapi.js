@@ -10,7 +10,10 @@ document.querySelector("#request--meetups").addEventListener("click", function (
     console.log("searchfield", searchField)
 
 
-    document.querySelector("#meetupContainer").innerHTML = ""
+    document.querySelector("#concertContainer").innerHTML = ""
+   document.querySelector("#restaurantContainer").innerHTML = ""
+   document.querySelector("#meetupContainer").innerHTML = ""
+   document.querySelector("#parksContainer").innerHTML = ""
     fetch(`https://www.eventbriteapi.com/v3/events/search/?q=nashville_${searchField}&token=OEA3462VUJJRZA57Z7GC`, {
         headers: {
             "Authorization": "Bearer OEA3462VUJJRZA57Z7GC",
