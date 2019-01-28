@@ -9,6 +9,10 @@ h4 {
     text-align: center;
 }
 
+li {
+    margin-bottom: 3px;
+}
+
 #searchform--parks,
 #searchform--food,
 #searchform--meetups,
@@ -38,6 +42,7 @@ h4 {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    margin: auto;
 }
 
 .restaurant--results--card,
@@ -54,7 +59,7 @@ h4 {
 .park--card {
     border: 1px solid black;
     padding: 5px 5px 10px 5px;
-    width: 300px;
+    width: 250px;
     height: auto;
     margin-top: 10px;
     border-radius: 10px;
@@ -67,6 +72,10 @@ h4 {
     padding: 10px;
     border-radius: 10px;
     width: 50%;
-    margin: 0% 25%;
+    margin: auto;
+}
+
+#itinerary--container div {
+margin-bottom: 5px;
 }
 

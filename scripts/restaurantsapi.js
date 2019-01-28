@@ -20,7 +20,7 @@ document.getElementById("request--food").addEventListener("click", function () {
 
                 })
             } else {
-                containerEl.innerHTML += "<h2><em>No results found</em> 🤷‍♀️</h2>"
+                containerEl.innerHTML += "<p>No results found 🤷‍♀️</p>"
             }
         })
     })
