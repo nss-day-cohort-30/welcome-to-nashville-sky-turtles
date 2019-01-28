@@ -1,0 +1,120 @@
+body {
+    background-color: rgb(196, 245, 248);
+}
+
+.content--div {
+    background-color: bisque;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 20px;
+}
+
+h1{
+    text-align: center;
+    flex-basis: 100%;
+    font-family: 'Caveat';
+    font-size: 60px;
+}
+h2 {
+    text-align: center;
+    flex-basis: 100%;
+    font-family: 'Caveat';
+    font-size: 35px;
+}
+
+h4 {
+    flex-basis: 100%;
+    text-align: center;
+}
+
+li {
+    margin-bottom: 3px;
+}
+
+.image--container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#skyline {
+    height: 200px;
+    border-radius: 100%;
+}
+
+#searchform--parks,
+#searchform--food,
+#searchform--meetups,
+#searchform--music {
+    margin-bottom: 6px;
+}
+
+.search--parks,
+.search--food,
+.search--meetups,
+.search--music {
+    width: 200px;
+}
+
+.search--section {
+    width: 375px;
+    text-align: left;
+    margin: auto;
+    font-family: 'Caveat';
+    font-size: 20px;
+}
+
+.result--section {
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+#parksContainer,
+#restaurantContainer,
+#meetupContainer,
+#concertContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: auto;
+}
+
+.restaurant--results--card,
+.eventsContainer {
+    border: 3px solid white;
+    padding: 5px 5px 10px 5px;
+    width: 400px;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 10px;
+    flex-wrap: wrap;
+    background-color: lightyellow;
+}
+
+.park--card {
+    border: 3px solid white;
+    padding: 5px 5px 10px 5px;
+    width: 250px;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 10px;
+    flex-wrap: wrap;
+    background-color: lightyellow;
+}
+
+#itinerary--container {
+    border: 3px solid white;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 10px;
+    width: 50%;
+    margin: auto;
+    background-color: lightgoldenrodyellow;
+
+}
+
+#itinerary--container div {
+margin-bottom: 5px;
+}
+
