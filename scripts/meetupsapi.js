@@ -69,9 +69,10 @@ document.querySelector("#meetupContainer").addEventListener("click", function ()
                 "Authorization": "Bearer OEA3462VUJJRZA57Z7GC",
                 "Accept": "application/json"
             }
-        }).then(event => event.json()
-            .then(event => {
-                const somethingToSave = saveToItinerary(event)
+        }).then(eventMeet => eventMeet.json()
+            .then(eventMeet => {
+
+                const somethingToSave = saveToItinerary(eventMeet)
                 anotherThingToDom(somethingToSave)
             })
         )
@@ -80,13 +81,14 @@ document.querySelector("#meetupContainer").addEventListener("click", function ()
             document.querySelector("#meetupItinerary").innerHTML += somethingToSave;
         }
 
-debugger 
-        const saveToItinerary = (event) => {
-            console.log("event:", event)
+// debugger 
+
+        const saveToItinerary = (eventMeet) => {
+            console.log("event:", eventMeet)
             return `
             <section name="meetup--section" id="meetup--article"> 
-            <p>${event.name} </p> 
-            <p>${event.start}</p>
+            <p>${eventMeet.name} </p> 
+            <p>${eventMeet.start}</p>
             
             </section>
             `
