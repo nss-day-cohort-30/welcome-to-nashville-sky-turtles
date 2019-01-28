@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Nashville Software School</title>
+  <link rel="stylesheet" href="./main.css">
+
+</head>
+<body>
+
+  <h1>Welcome to Nashville</h1>
+  <article id="display">
+    <section class="search--section">
+      <h2>Search for ... </h2>
+      <div id="searchform--parks">
+        parks: <input type="text" name="search--parks" class="search--parks" placeholder="parks by feature">
+        <button id="request--parks">request</button>
+      </div>
+      <div id="searchform--food">
+        restaurants: <input type="text" name="search--food" class="search--food" placeholder="restaurants by food type">
+        <button id="request--food">request</button>
+      </div>
+
+      <div id="searchform--meetups">
+        meetups: <input type="text" name="search--meetups" class="search--meetups" placeholder="meetups by topic">
+        <button id="request--meetups">request</button>
+      </div>
+
+      <div id="searchform--music">
+        concert: <input type="text" name="search--music" class="search--music" placeholder="concerts by genre">
+        <button id="request--music">request</button>
+      </div>
+    </section>
+
+    <section class="result--section">
+      <h2>Results</h2>
+      <div id="results--container">
+        <!--
+          <div class="parks--results">
+            <ul>
+              <li></li>
+            </ul>
+          </div>
+         </div>
+        -->
+    </section>
+
+    <section class="itinerary--section">
+      <h2>Itinerary</h2>
+      <div id="itinerary--container">
+      </div>
+    </section>
+  </article>
+
+  <script src="./scripts/main.js"></script>
+  <script src="./scripts/parksapi.js"></script>
+  <script src="./scripts/concertAPI.js"></script>
+  <script src="./scripts/restaurantsapi.js"></script>
+  <script src="./scripts/meetupCategories.json"></script>
+  <script src="./scripts/meetupsapi.js"></script>
+</body>
+</html>
