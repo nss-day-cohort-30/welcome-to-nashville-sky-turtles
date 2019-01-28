@@ -2,7 +2,7 @@
 
 const feature = document.querySelector(".search--parks");
 const featureButton = document.querySelector("#request--parks");
-const resultsGoHere = document.querySelector("#results--container");
+const resultsGoHere = document.querySelector("#parksContainer");
 
 const findFeature = feature => {
     fetch("https://data.nashville.gov/resource/xbru-cfzi.json")
