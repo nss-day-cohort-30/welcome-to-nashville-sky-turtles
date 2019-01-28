@@ -40,10 +40,8 @@ const makeparksHTML = (featureParksArray, result) => {
       idCounter++;
     });
   }
+    clearDivs();
     resultsGoHere.innerHTML = HTMLsquirt;
-    document.querySelector("#restaurantContainer").innerHTML = "";
-    document.querySelector("#meetupContainer").innerHTML = "";
-    document.querySelector("#concertContainer").innerHTML = "";
 };
 
 const listenFactory = featureParksArray => {
