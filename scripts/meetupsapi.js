@@ -11,9 +11,9 @@ document.querySelector("#request--meetups").addEventListener("click", function (
 
 
     document.querySelector("#concertContainer").innerHTML = ""
-   document.querySelector("#restaurantContainer").innerHTML = ""
-   document.querySelector("#meetupContainer").innerHTML = ""
-   document.querySelector("#parksContainer").innerHTML = ""
+    document.querySelector("#restaurantContainer").innerHTML = ""
+    document.querySelector("#meetupContainer").innerHTML = ""
+    document.querySelector("#parksContainer").innerHTML = ""
     fetch(`https://www.eventbriteapi.com/v3/events/search/?q=nashville_${searchField}&token=OEA3462VUJJRZA57Z7GC`, {
         headers: {
             "Authorization": "Bearer OEA3462VUJJRZA57Z7GC",
@@ -41,7 +41,7 @@ let counter = 1
 const meetupBuilder = event => {
     counter++
     return `
-    <section name="meetup--section" id="meetup--article_${counter}"> 
+    <section class="meetup--section" id="meetup--article_${counter}"> 
     <p>${event.name.text} </p> 
     
     <button id="${event.id}">Save to itinerary</button>
@@ -81,7 +81,7 @@ document.querySelector("#meetupContainer").addEventListener("click", function ()
         )
         const anotherThingToDom = somethingToSave => {
 
-            document.querySelector("#meetupItinerary").innerHTML=" "
+            document.querySelector("#meetupItinerary").innerHTML = " "
             document.querySelector("#meetupItinerary").innerHTML += somethingToSave;
         }
 
@@ -91,7 +91,7 @@ document.querySelector("#meetupContainer").addEventListener("click", function ()
             console.log("event:", event)
             return `
             <section name="meetup--section" id="meetup--article"> 
-            <p>${event.name.text} </p> 
+            <p>Meetup: ${event.name.text} </p> 
             </section>
             `
         }
