@@ -1,5 +1,5 @@
 const meetupSearch = document.querySelector("#searchform--meetups")
-const place4MeetupResults = document.querySelector("#results--container")
+const place4MeetupResults = document.querySelector("#meetupContainer")
 let allEvents = []
 
 
@@ -10,7 +10,7 @@ document.querySelector("#request--meetups").addEventListener("click", function (
     console.log("searchfield", searchField)
 
 
-    document.querySelector("#results--container").innerHTML = ""
+    document.querySelector("#meetupContainer").innerHTML = ""
     fetch(`https://www.eventbriteapi.com/v3/events/search/?q=nashville_${searchField}&token=OEA3462VUJJRZA57Z7GC`, {
         headers: {
             "Authorization": "Bearer OEA3462VUJJRZA57Z7GC",
@@ -49,67 +49,67 @@ const meetupBuilder = event => {
 
 
 addToDom = (meetupsToDom) => {
-    document.querySelector("#results--container").innerHTML += meetupsToDom;
+    document.querySelector("#meetupContainer").innerHTML += meetupsToDom;
 
 
 }
 
 
 
-document.querySelector("#results--container").addEventListener("click", function () {
+document.querySelector("#meetupContainer").addEventListener("click", function () {
     let meetNameId = event.target.id
     let buttonType = meetNameId.split("_");
-    if (buttonType[1] === "event") {
-        fetchSpecific(meetNameId)
-    }
+
 
 
     const fetchSpecific = (nameEventID) => {
 
-        fetch(`https://www.eventbriteapi.com/v3/events/?q=${nameEventID}/&token=OEA3462VUJJRZA57Z7GC`, {
+        fetch(`https://www.eventbriteapi.com/v3/events/${nameEventID}/?token=OEA3462VUJJRZA57Z7GC`, {
             headers: {
                 "Authorization": "Bearer OEA3462VUJJRZA57Z7GC",
                 "Accept": "application/json"
             }
         }).then(event => event.json()
-        .then(event => {
-            const somethingToSave = saveToItinerary(event)
-            anotherThingToDom(somethingToSave)
-        })
+            .then(event => {
+                const somethingToSave = saveToItinerary(event)
+                anotherThingToDom(somethingToSave)
+            })
         )
+        const anotherThingToDom = somethingToSave => {
+
+            document.querySelector("#meetupItinerary").innerHTML += somethingToSave;
+        }
+
+debugger 
+        const saveToItinerary = (event) => {
+            console.log("event:", event)
+            return `
+            <section name="meetup--section" id="meetup--article"> 
+            <p>${event.name} </p> 
+            <p>${event.start}</p>
+            
+            </section>
+            `
+        }
+
+
     }
+    fetchSpecific(meetNameId)
 
     console.log("meetNameId: ", meetNameId)
-// console.log("event id:", event.id)
+    // console.log("event id:", event.id)
 
 })
 
-const anotherThingToDom = somethingToSave => {
-    
-    document.querySelector("#meetupItinerary").innerHTML += somethingToSave;
-}
 
 
-const saveToItinerary = (event) => {
-    console.log("event:", event)
-    return `
-    <section name="meetup--section" id="meetup--article"> 
-    <p>${event.event.name} </p> 
-        <p>${event.event.start}</p>
-        
-        </section>
-        `
-    }
-    
-    
-    
+
     // const theSelectedBtn = document.querySelector(`#btn-${event.id}`)
     // console.log("selected btn:", theSelectedBtn)
-    
+
     // theSelectedBtn.addEventListener("click", saveToItinerary)
-    
+
 
     // document.querySelector("#meetupItinerary").innerHTML = ""
     // if (theSelectedBtn.split("-")[1] === event.id)
     // selectedMeetupBuilder(this.event)
-    
