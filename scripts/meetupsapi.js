@@ -34,22 +34,14 @@ document.querySelector("#request--meetups").addEventListener("click", function (
 
 })
 
-
+let counter = 1
 const meetupBuilder = event => {
+    counter++
     return `
-    <section name="meetup--section" id="meetup--article"> 
+    <section name="meetup--section" id="meetup--article_${counter}"> 
     <p>${event.name.text} </p> 
     
-    <button id="btn-${event.id}">Save to itinerary</button>
-    
-    </section>
-    `
-}
-const selectedMeetupBuilder = (event) => {
-    return `
-    <section name="meetup--section" id="meetup--article"> 
-    <p>${event.name.text} </p> 
-    <p>${event.start}</p>
+    <button id="${event.id}">Save to itinerary</button>
     
     </section>
     `
@@ -61,14 +53,63 @@ addToDom = (meetupsToDom) => {
 
 
 }
-const theSelectedBtn = document.querySelector(`#btn-${event.event.id}`)
 
-theSelectedBtn.addEventListener("click", saveToItinerary)
 
-saveToItinerary = (theSelectedBtn) => {
 
-    document.querySelector("#meetupItinerary").innerHTML = ""
-    if (theSelectedBtn.split("-")[1] === event.id)
-        selectedMeetupBuilder(this.event)
-    document.querySelector("#meetupItinerary").innerHTML += meetupsToDom;
+document.querySelector("#results--container").addEventListener("click", function () {
+    let meetNameId = event.target.id
+    let buttonType = meetNameId.split("_");
+    if (buttonType[1] === "event") {
+        fetchSpecific(meetNameId)
+    }
+
+
+    const fetchSpecific = (nameEventID) => {
+
+        fetch(`https://www.eventbriteapi.com/v3/events/?q=${nameEventID}/&token=OEA3462VUJJRZA57Z7GC`, {
+            headers: {
+                "Authorization": "Bearer OEA3462VUJJRZA57Z7GC",
+                "Accept": "application/json"
+            }
+        }).then(event => event.json()
+        .then(event => {
+            const somethingToSave = saveToItinerary(event)
+            anotherThingToDom(somethingToSave)
+        })
+        )
+    }
+
+    console.log("meetNameId: ", meetNameId)
+// console.log("event id:", event.id)
+
+})
+
+const anotherThingToDom = somethingToSave => {
+    
+    document.querySelector("#meetupItinerary").innerHTML += somethingToSave;
 }
+
+
+const saveToItinerary = (event) => {
+    console.log("event:", event)
+    return `
+    <section name="meetup--section" id="meetup--article"> 
+    <p>${event.event.name} </p> 
+        <p>${event.event.start}</p>
+        
+        </section>
+        `
+    }
+    
+    
+    
+    // const theSelectedBtn = document.querySelector(`#btn-${event.id}`)
+    // console.log("selected btn:", theSelectedBtn)
+    
+    // theSelectedBtn.addEventListener("click", saveToItinerary)
+    
+
+    // document.querySelector("#meetupItinerary").innerHTML = ""
+    // if (theSelectedBtn.split("-")[1] === event.id)
+    // selectedMeetupBuilder(this.event)
+    
